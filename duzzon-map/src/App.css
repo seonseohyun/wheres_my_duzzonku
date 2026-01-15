@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +42,106 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Custom Overlay Style */
+.custom-overlay {
+  position: relative;
+  bottom: 0px;
+  border-radius: 12px;
+  /* background is handled by inner card */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  animation: fadeIn 0.3s ease-out;
+  cursor: default;
+  /* Remove shadow from wrapper to avoid box shape */
+}
+
+/* Triangle Arrow pointing down */
+.custom-overlay::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid white;
+  z-index: 10;
+}
+
+.overlay-card {
+  width: 220px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.store-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #333;
+}
+
+.close-btn {
+  font-size: 14px;
+  color: #bbb;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.overlay-body {
+  padding: 12px 14px;
+  background: white;
+}
+
+.overlay-body p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background: #f3f4f6;
+  color: #555;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
