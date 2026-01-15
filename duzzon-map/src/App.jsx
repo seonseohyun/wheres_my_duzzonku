@@ -30,7 +30,7 @@ function App() {
         return;
       }
 
-      const center = new window.kakao.maps.LatLng(37.5563, 126.9220);
+      const center = new window.kakao.maps.LatLng(35.19341, 126.82032); // 광주
       const map = new window.kakao.maps.Map(container, {
         center,
         level: 8,
@@ -53,8 +53,8 @@ function App() {
       storeData.forEach((store) => {
         const markerPosition = new window.kakao.maps.LatLng(store.lat, store.lng);
 
-        // 🎨 커스텀 마커 생성
-        const svgContent = store.status === "rumor" ? MARKER_SVG_RUMOR : MARKER_SVG_KNOWN;
+        // 🎨 커스텀 마커 생성 (모두 동일한 아이콘 사용)
+        const svgContent = MARKER_SVG_KNOWN;
         const markerImageSize = new window.kakao.maps.Size(40, 40);
         const markerImageOptions = { offset: new window.kakao.maps.Point(20, 20) };
 
